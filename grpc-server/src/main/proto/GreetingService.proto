@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package com.codelens.grpc;
+
+// Request Payload
+message HelloRequest{
+  string  name = 1;
+
+  // list of string ...
+  repeated string hobbies = 2;
+
+  int32 year = 3;
+}
+
+// Request Response ...
+message HelloResponse{
+  string greeting = 1;
+}
+
+// Define the service .... the service can have multiple RPC operations ...
+service GreetingsService {
+
+  // RPC Operation ....
+  rpc greeting(HelloRequest) returns (HelloResponse);
+}
